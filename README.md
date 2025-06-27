@@ -65,7 +65,7 @@ This will create real AWS infrastructure. Make sure your AWS account allows this
 
 After terraform apply, configure kubectl:
     ```bash
-    aws eks update-kubeconfig --region <your-region> --name <cluster-name>
+    aws eks update-kubeconfig --region <your-region> --name < cluster-name>
     kubectl get nodes
 
 📊 Monitoring Setup (Coming Soon)
