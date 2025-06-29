@@ -1,7 +1,7 @@
 resource "aws_eks_cluster" "eks_cluster" {
   name     = var.cluster_name
   version  = var.eks_version
-  role_arn = module.iam.eks_cluster_role_arn
+  role_arn = var.eks_cluster_role_arn
 
   vpc_config {
     endpoint_private_access = false

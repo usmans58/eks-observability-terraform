@@ -11,3 +11,8 @@ variable "subnet_ids" {
   type        = list(string)
 
 }
+variable "eks_cluster_role_arn" {
+  description = "The ARN of the EKS cluster role"
+  type        = string
+
+}

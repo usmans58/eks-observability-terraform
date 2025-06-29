@@ -13,10 +13,13 @@ module "iam" {
   cluster_name = var.cluster_name
 }
 module "eks" {
-  source       = "./modules/eks_cluster"
-  cluster_name = var.cluster_name
-  eks_version  = var.eks_version
-  subnet_ids   = module.vpc.eks_private_subnet_ids
-  depends_on   = [module.iam.eks_cluster_role_policy_attachment.eks_cluster_policy]
+  source               = "./modules/eks_cluster"
+  cluster_name         = var.cluster_name
+  eks_version          = var.eks_version
+  subnet_ids           = module.vpc.eks_private_subnet_ids
+  eks_cluster_role_arn = module.iam.eks_cluster_role_arn
+
+
+  depends_on = [module.iam]
 
 }
