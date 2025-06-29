@@ -19,3 +19,8 @@ variable "public_subnet_cidrs" {
   description = "List of CIDR blocks for the public subnets"
   type        = list(string)
 }
+variable "eks_version" {
+  description = "The version of the EKS cluster"
+  type        = string
+  default     = "1.21"
+}

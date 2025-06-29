@@ -13,6 +13,8 @@ module "iam" {
   cluster_name = var.cluster_name
 }
 module "eks" {
-  source = "./modules/eks"
+  source       = "./modules/eks_cluster"
+  cluster_name = var.cluster_name
+  eks_version  = var.eks_version
 
 }
