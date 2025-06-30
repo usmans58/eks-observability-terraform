@@ -24,3 +24,27 @@ variable "eks_version" {
   type        = string
   default     = "1.21"
 }
+variable "eks_version" {
+  description = "The EKS version"
+  type        = string
+}
+
+variable "node_group_desired_size" {
+  description = "The desired size of the EKS node group"
+  type        = number
+}
+
+variable "node_group_max_size" {
+  description = "The maximum size of the EKS node group"
+  type        = number
+}
+
+variable "node_group_min_size" {
+  description = "The minimum size of the EKS node group"
+  type        = number
+}
+
+variable "instance_types" {
+  description = "The instance types for the EKS node group"
+  type        = list(string)
+}
