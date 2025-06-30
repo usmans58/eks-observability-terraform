@@ -92,5 +92,5 @@ resource "aws_iam_user_policy_attachment" "developer_policy_attachment" {
 resource "aws_eks_access_entry" "developer_access" {
   cluster_name = var.cluster_name
   principal_arn = aws_iam_user.developer_role.arn
-  kubernetes_groups = ["viewer"]
+  kubernetes_groups = ["my-viewer"]
 }
