@@ -5,6 +5,7 @@ resource "aws_eks_node_group" "node_group" {
   subnet_ids      = var.subnet_ids
   version         = var.eks_version
   capacity_type   = "ON_DEMAND"
+  instance_types  = var.instance_types
 
   scaling_config {
     desired_size = var.node_group_desired_size
@@ -12,15 +13,21 @@ resource "aws_eks_node_group" "node_group" {
     min_size     = var.node_group_min_size
   }
 
-  instance_types = var.instance_types
+  update_config {
+    max_unavailable = 1
+  }
+  labels = {
+    role = "node-group"
+  }
 
   tags = {
     Name = "${var.cluster_name}-node-group"
   }
 
-#   depends_on = [
-#     module.iam.node_group_role_policy_attachment,
-#     aws_eks_cluster.eks_cluster,
-#   ]
+  lifecycle {
+    ignore_changes = [
+      scaling_config[0].desired_size
+    ]
+  }
 
 }
