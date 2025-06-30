@@ -24,11 +24,6 @@ variable "eks_version" {
   type        = string
   default     = "1.21"
 }
-variable "eks_version" {
-  description = "The EKS version"
-  type        = string
-}
-
 variable "node_group_desired_size" {
   description = "The desired size of the EKS node group"
   type        = number
